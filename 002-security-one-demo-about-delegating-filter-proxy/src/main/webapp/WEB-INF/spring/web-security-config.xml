@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:sec="http://www.springframework.org/schema/security"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
+        ">
+
+    <!-- bean definitions here -->
+    	<sec:http pattern="/" security="none"/>
+    	<sec:http pattern="/resources/**" security="none"/>
+    
+	   	<sec:http>
+	   		
+	   		<sec:intercept-url pattern="/admin/**" access="hasAuthority('Admin')"/>
+	   		<sec:intercept-url pattern="/member/**" access="hasAnyAuthority('Admin','Member')"/>
+	   		
+	   		<sec:form-login/>
+	   		<sec:logout logout-url="/logout" invalidate-session="true" />
+	   	</sec:http>
+	   	
+	   	<sec:user-service>
+	   		<sec:user name="Admin" authorities="Admin" password="{noop}Admin"/>
+	   		<sec:user name="Member" authorities="Member" password="{noop}Member"/>
+	   	</sec:user-service>
+	   	
+	
+</beans>

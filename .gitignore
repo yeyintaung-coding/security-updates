@@ -24,3 +24,11 @@ hs_err_pid*
 replay_pid*
 
 *.settings
+
+
+*.settings/
+
+*.classpath
+*.project
+*.springBeans
+*.factorypath

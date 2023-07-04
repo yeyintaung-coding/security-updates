@@ -1,0 +1,4 @@
+com\jdc\spring\demo\WebSecurityConfiguration.class
+com\jdc\spring\demo\WebMvcConfiguration.class
+com\jdc\spring\demo\ApplicationSecurityLoader.class
+com\jdc\spring\demo\ApplicationWebLoader.class
